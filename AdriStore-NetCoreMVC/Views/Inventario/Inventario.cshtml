@@ -1,0 +1,49 @@
+﻿@using AdriStoreWeb.BE
+@model IEnumerable<ADRISTORE.BE.Inventario>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/_MasterPage.cshtml";
+}
+
+<h4>Inventario</h4>
+<input type="button" class="btn btn-primary btn-xs btn-round-xs" onclick="AgregarItem()" value="Agregar Item" />
+
+<div class="form-group">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <td>ID</td>
+                <td>Tipo de Item</td>
+                <td>Cantidad Disponible</td>
+                <td>Rubro</td>
+                <td>Fecha de Alta</td>
+
+            </tr>
+        </thead>
+
+        @if (Model != null)
+        {
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Catalogo.Nombre</td>
+                    <td>@item.CantidadDisponible</td>
+                    <td>@item.Catalogo.Rubro.Nombre</td>
+                    <td>@item.FechaAlta</td>
+
+                    <td><a href="/Inventario/PrepararModificarItem/@item.Id">Edit</a></td>
+                    <td><a href="/Inventario/EliminarItem/@item.Id">Delete</a></td>
+                </tr>
+            }
+        }
+    </table>
+</div>
+
+    <script>
+        function AgregarItem() {
+            window.location.href = "/Inventario/PrepararAgregarItem";
+        }
+
+    </script>

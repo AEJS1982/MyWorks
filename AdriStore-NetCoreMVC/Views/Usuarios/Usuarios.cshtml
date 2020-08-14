@@ -1,0 +1,54 @@
+﻿@model IEnumerable<ADRISTORE.BE.Usuario>
+
+@{
+    ViewBag.Title = "Usuarios";
+    Layout = "~/Views/_MasterPage.cshtml";
+}
+
+<h4>Usuarios</h4>
+
+<input type="button" class="btn btn-primary btn-xs btn-round-xs" onclick="AgregarItem()" value="Agregar Item" />
+
+<div class="form-group">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <td>ID</td>
+                <td>Nombre</td>
+                <td>Password</td>
+                <td>Habilitado</td>
+                <td>TipoUsuario</td>
+                <td>Fecha de Alta</td>
+                <td>Email</td>
+            </tr>
+        </thead>
+
+        @if (Model != null)
+        {
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Nombre</td>
+                    <td>@item.Password</td>
+                    <td>@item.Habilitado</td>
+                    <td>@item.TipoUsuario</td>
+                    <td>@item.FechaAlta</td>
+                    <td>@item.Email</td>
+
+                    <td><a href="/Usuarios/PrepararModificarItem/@item.Id">Edit</a></td>
+                    <td><a href="/Usuarios/EliminarItem/@item.Id">Delete</a></td>
+                </tr>
+            }
+        }
+    </table>
+</div>
+
+
+<script>
+    function Agregar() {
+        window.location.href = "/@ViewBag.Controlador/PrepararAgregar";
+    }
+
+
+</script>

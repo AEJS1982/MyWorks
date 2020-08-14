@@ -1,0 +1,104 @@
+﻿@model ADRISTORE.BE.Usuario
+
+@{
+    ViewBag.Title = "UsuarioItem";
+    Layout = "~/Views/_MasterPage.cshtml";
+}
+
+<h3>Usuario</h3>
+
+<div>
+    @if (Model != null)
+    {
+    <form role="form" id="formUsuario">
+        <div class="form-group">
+            <label for="txtNombre" class="form-control .form-control-xs">Nombre:</label>
+            <input type="text" class="form-control .form-control-xs" id="txtNombre" value="@Model.Nombre">
+        </div>
+
+        <div class="form-group">
+            <label for="txtPassword" class="form-control .form-control-xs">Password:</label>
+            <input type="password" pattern="^[A-Za-z0-9\s]*$" class="form-control .form-control-xs" id="txtPassword" value="@Model.Password">
+        </div>
+
+        <div class="form-group">
+            <label for="txtFechaAlta" class="form-control .form-control-xs">Fecha de Alta:</label>
+            <input type="date" class="form-control .form-control-xs" id="txtFechaAlta" value="@Model.FechaAlta">
+        </div>
+
+        <div class="form-group">
+            <label for="txtEmail" class="form-control .form-control-xs">Email:</label>
+            <input type="email" class="form-control .form-control-xs" id="txtEmail" value="@Model.Email">
+        </div>
+
+        <div class="form-group">
+            <label for="txtDNI" class="form-control .form-control-xs">DNI:</label>
+            <input type="number" maxlength="11"  class="form-control .form-control-xs" id="txtDNI" value="@Model.Dni">
+        </div>
+
+
+        <div class="form-group">
+            <label for="chkHabilitado"  class="form-control .form-control-xs">Habilitado:</label>
+            <input type="checkbox" class="form-control .form-control-xs" id="chkHabilitado" checked="@Model.Habilitado" value="Habilitado">
+        </div>
+
+        <div class="form-group">
+            <label for="cmbTipoUsuario" class="form-control .form-control-xs">Tipo de Usuario:</label>
+            <select id="cmbTipoUsuario" class="form-control .form-control-xs">
+                @if (ViewBag.EsAdmin == true)
+                {
+                    <option value="A">Administrador</option>
+                }
+                <option value="C">Cliente</option>
+            </select>
+        </div>
+
+        <button type="button" class="btn btn-default btn-xs btn-round-xs" onsubmit="return Guardar(this)">Guardar</button>
+        <button type="button" class="btn btn-default btn-xs btn-round-xs" onclick="javascript:window.location('~/Usuarios')">Cancelar</button>
+
+    </form>
+    }
+</div>
+
+<script>
+
+
+    function Guardar(e) {
+        
+        //Evitar el submit y validar
+        //e.preventDefault();
+
+        //Validar form
+        if (formUsuario.checkValidity() == false) {
+            //alert("Tiene errores en el formulario, por favor revise los datos");
+            formUsuario.reportValidity();
+            return false;
+        }
+
+        var ModoOper = "@ViewBag.ModoOper";
+
+        var auxUsuario = {
+            Nombre: $("#txtNombre")[0].value,
+            Password: $("#txtPassword")[0].value,
+            DireccionEntrega: $("#txtDireccionEntrega")[0].value,
+            DNI: $("#txtDNI")[0].value,
+            FechaAlta: $("#txtFechaAlta")[0].value,
+            TelefonoContacto: $("#txtTelefonoContacto")[0].value,
+            Habilitado: $("#chkHabilitado")[0].checked,
+            TipoUsuario: $("#cmbTipoUsuario")[0].value,
+            Email: $("#txtEmail")[0].value
+        };
+
+        var urlAccion = "";
+
+        if (ModoOper == "NEW") {
+            urlAccion = "/@ViewBag.Controlador/Agregar";
+        }
+        else {
+            //Modificar
+            urlAccion = "/@ViewBag.Controlador/Modificar";
+        }
+
+        httpCall(urlAccion, "POST", auxUsuario);
+    }
+</script>

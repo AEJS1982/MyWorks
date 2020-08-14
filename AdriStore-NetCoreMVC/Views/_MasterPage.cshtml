@@ -1,0 +1,126 @@
+﻿@using AdriStoreWeb.BE
+@using AdriStoreWeb.Models
+@using AdriStoreWeb
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    <!-- Javascript -->
+    <script src="@Url.Content("~/js/jquery.js")"></script>
+    <script src="@Url.Content("/js/jquery.validate.js")"></script>
+    <script src="@Url.Content("/js/bootstrap.min.js")"></script>
+    <script src="@Url.Content("/js/validator.min.js")"></script>
+    <script src="@Url.Content("/js/Helper.js")"></script>
+
+    <!-- CSS -->
+    <link href="@Url.Content("/css/bootstrap.superhero.min.css")" rel="stylesheet">
+    <link href="@Url.Content("/css/Custom.css")" rel="stylesheet">
+    
+</head>
+<body>
+    
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <a href="/Main">
+                    <img src="~/images/Logo.png" style="left:0%" width="150px" height="50px" alt="" class=".img-responsive">
+                </a>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+
+                </button>
+
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="~/Listado">Listado</a>
+
+                    </li>
+
+                    <li class="dropdown" id="MenuAdmin" onclick="SetSecurity()">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">BackOffice <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="~/Pedidos">Pedidos</a></li>
+                            <li><a href="~/Catalogo">Catalogo</a></li>
+                            <li><a href="~/Inventario">Inventario</a></li>
+                            <li><a href="~/Rubros">Rubros</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li class="dropdown-header">Seguridad</li>
+                            <li><a href="~/Usuarios/Login">Login</a></li>
+                            <li><a href="~/Usuarios">Usuarios</a></li>
+                            <li><a href="#">Clientes</a></li>
+
+
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mi Sesión <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="~/Carrito">
+                                    <span class="glyphicon glyphicon-shopping-cart"></span>Carrito
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                    <li style="position:relative;left:70%;top:25%">
+                        Usuario: @Helper.GetUsuarioLogueado()
+                    </li>
+
+                </ul>
+                <div align="right">
+                    <table>
+                        <tr>
+                            <td></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="panel panel-default">
+
+        <div class="panel-body">
+            @RenderBody()
+        </div>
+    </div>
+
+
+
+    <script>
+
+        function SetSecurity() {
+            var visibilidad = "";
+            var cmbMenuAdmin = $("#MenuAdmin")[0];
+
+            $.get('/Usuarios/SetVisibilityAdminMenu', function (data, status) {
+                visibilidad = data;
+            });
+
+            cmbMenuAdmin.attributes["style"] = visibilidad;
+        }
+    </script>
+
+
+</body>
+
+
+</html>

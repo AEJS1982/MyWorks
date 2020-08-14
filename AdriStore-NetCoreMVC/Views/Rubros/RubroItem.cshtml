@@ -1,0 +1,93 @@
+﻿@model ADRISTORE.BE.RubroCatalogo
+
+@{
+    
+    ViewBag.Title = "RubroItem";
+    Layout = "~/Views/_MasterPage.cshtml";
+}
+
+<h3>Rubro</h3>
+
+<div>
+    @if (Model != null)
+    {
+        <form role="form1" class="form-group form-control-xs">
+            <div class="form-group">
+                <label for="txtNombre">Nombre:</label>
+                <input type="text" class="form-control input-sm" id="txtNombre" value="@Model.Nombre" onkeypress="javascript:ValidarForm()"  pattern="^([a-zA-Z0-9\s]*)$" />
+            </div>
+
+            <div class="form-group">
+                <label for="txtComentario">Comentario:</label>
+                <input type="text" class="form-control input-sm" id="txtComentario" value="@Model.Comentario" onkeypress="javascript:ValidarForm()"  pattern="^([a-zA-Z0-9\s]*)$">
+            </div>
+
+        
+            <div class="checkbox">
+                <label for="chkHabilitado">
+                    <input type="checkbox" id="chkHabilitado" checked="@Model.Habilitado" value="Habilitado">
+                    Habilitado
+                </label>
+            </div>
+        
+            <button type="button" class="btn btn-default btn-round-xs" onclick="Guardar()">Guardar</button>
+            <button type="button" class="btn btn-default btn-round-xs" onclick="javascript:window.location('/Rubros')">Cancelar</button>
+
+
+        </form>
+    }
+</div>
+
+<script>
+    $("#form1").validate();
+
+    function ValidarForm() {
+        //validar por regex
+        var auxNombre = $("#txtNombre")[0].value;
+        var auxComentario =$("#txtComentario")[0].value;
+
+        if (!validarTexto(auxComentario))
+            return false;
+
+        if (!validarTexto(auxNombre))
+            return false;
+
+        return true;
+    }
+
+    function Guardar() {
+
+        //Evitar el submit y validar
+        //e.preventDefault();
+
+
+        if (!ValidarForm()) {
+            alert("Error! Datos inválidos");
+            return;
+        }
+
+        var ModoOper = "@ViewBag.ModoOper";
+
+        var params = window.location.href.split('/');
+        //debugger;
+
+        var ItemRubro = {
+            Id: params[params.length-1],
+            Nombre: $("#txtNombre")[0].value,
+            Habilitado: $("#chkHabilitado")[0].checked,
+            Comentario:$("#txtComentario")[0].value
+        };
+
+        var urlAccion = "";
+
+        if (ModoOper == "NEW") {
+            urlAccion = "/Rubros/AgregarItem";
+        }
+        else {
+            //Modificar
+            urlAccion = "/Rubros/ModificarItem";
+        }
+
+        httpCall(urlAccion, "POST", ItemRubro);
+    }
+</script>

@@ -1,0 +1,134 @@
+﻿@model ADRISTORE.BE.Catalogo
+@using AdriStoreWeb
+
+@{
+    ViewBag.Title = "ItemView";
+    Layout = "~/Views/_MasterPage.cshtml";
+}
+
+<h4>Edición de Catálogo</h4>
+
+<div>
+    <form id="form1" role="form" class="form-group form-group-xs">
+        <div>
+            <label for="txtNombre">Nombre:</label>
+            <input type="text" class="form-control input-sm" id="txtNombre" value="@Model.Nombre" pattern="^([a-zA-Z0-9]*)$">
+        </div>
+        
+        <div class="form-group">
+            <label for="cmbRubro">Rubro:</label>
+            <select id="cmbRubro" class="form-control input-sm">
+                @foreach (var item in Helper.GetListaRubros())
+                {
+                    <option value="@item.Id">@item.Nombre</option>
+                }
+            </select>
+        </div>
+        
+        <div>
+            <table>
+                <colgroup>
+                    <col width="20%" />
+                    <col width="80%" />
+                </colgroup>
+                <tr>
+                    <td><label for="chkHabilitado">Habilitado:</label></td>
+                    <td><input type="checkbox" id="chkHabilitado" checked="@Model.Habilitado" value="Habilitado" /></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="form-group">
+            <label for="txtPrecio">Precio:</label>
+            <input type="number" class="form-control input-sm" id="txtPrecio" value="@Model.Precio" />
+        </div>
+
+        <div class="form-group">
+            <label for="cmbFoto">Foto:</label>
+            <input type="file" class="form-control input-sm" name="file" id="ffoto" onchange="FotoCargada()"  />
+            <img id="vistaPreviaFoto" src="" height="200" alt="Image preview...">
+        </div>
+
+    
+        <button type="button" class="btn btn-default btn-round-xs" onclick="Guardar()">Guardar</button>
+        <button type="button" class="btn btn-default btn-round-xs" onclick="javascript:window.location('/Catalogo')">Cancelar</button>
+
+    </form>
+</div>
+
+<script>
+    var FotoBlob = {};
+
+    function FotoCargada() {
+        var getBinaryDataReader = new FileReader();
+
+        getBinaryDataReader.onloadend=
+            function (evt) {
+                FotoBlob = getBinaryDataReader.result;
+                vistaPreviaFoto.src = FotoBlob;
+            }
+
+        getBinaryDataReader.readAsDataURL(ffoto.files[0]);
+
+    }
+
+    function ValidarForm() {
+        var auxNombre = $("#txtNombre")[0].value;
+
+        if (!validarTexto(auxNombre))
+            return false;
+
+        return true;
+    }
+
+
+    function Guardar() {
+
+        //Evitar el submit y validar
+        //e.preventDefault();
+
+        if (!ValidarForm()) {
+            alert("Error! Datos inválidos");
+            return;
+        }
+
+        var ModoOper = "@ViewBag.ModoOper";
+
+        var cmbRubro = $("#cmbRubro")[0];
+        var urlAccion = "";
+
+        var DTOCatalogo = {
+            Item: {
+                Nombre: $("#txtNombre")[0].value,
+                Habilitado: $("#chkHabilitado")[0].checked,
+                RubroId: cmbRubro[cmbRubro.selectedIndex].value,
+                Precio: $("#txtPrecio")[0].value
+            }
+        }
+
+        if (ffoto.files.length > 0)
+        {
+            DTOCatalogo.Foto= {
+                PathFoto: ffoto.files[0].name,
+                Blob: FotoBlob
+            }
+        }
+
+        alert("ModoOper:" + ModoOper); 
+
+        if (ModoOper == "NEW") {
+            urlAccion = "/Catalogo/AgregarItem";
+        }
+        else {
+            //Modificar
+            urlAccion = "/Catalogo/ModificarItem";
+        }
+
+        //alert("about to save item..");
+        httpCall(urlAccion, "POST", DTOCatalogo);
+    }
+
+</script>
+
+
+

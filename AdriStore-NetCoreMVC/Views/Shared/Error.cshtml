@@ -1,0 +1,15 @@
+﻿@model ADRISTORE.Entities.Error
+
+@{
+    ViewBag.Title = "Error!";
+    Layout = "~/Views/_MasterPage.cshtml";
+}
+
+<h2>Error!</h2>
+
+<div>
+    <p style="color:red;">Error!</p>
+    <p>Codigo:@Model.Code</p>
+    <p>Error:@Model.Message</p>
+
+</div>

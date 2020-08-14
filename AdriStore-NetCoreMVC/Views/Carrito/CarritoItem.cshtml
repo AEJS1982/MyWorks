@@ -1,0 +1,79 @@
+﻿@model ADRISTORE.DTOs.DTOCarritoItem
+@{
+    ViewBag.Title = "CarritoItemView";
+    Layout = "~/Views/_MasterPage.cshtml";
+
+}
+
+<h4>Agregar Item al Carrito</h4>
+
+<div>
+    <form id="form1" role="form" class="form-group input-group-xs" style="width:50%">
+        <div>
+            <label>@Model.ItemInventario.Catalogo.Nombre</label>
+            <img src="/Fotos/@Model.ItemInventario.Catalogo.Foto" width="20%" height="20%"  />
+        </div>
+        <div class="form-group">
+            <label for="txtCantidad">Cantidad a comprar:</label>
+            <input type="number" size="2" class="form-control" id="txtCantidad" value="@Model.Cantidad" />
+        </div>
+
+        <div class="form-group">
+            <label for="txtPrecio">Precio por unidad:$@Model.ItemInventario.Catalogo.Precio</label>
+        </div>
+
+        <button type="button" class="btn btn-default btn-round-xs" onclick="Guardar()">Guardar</button>
+        <button type="button" class="btn btn-default btn-round-xs" onclick="javascript:window.location('/Listado')">Cancelar</button>
+    </form>
+</div>
+<script>
+
+    function ValidarForm() {
+        //validar por regex
+        var txtCantidad =$("#txtCantidad")[0].value;
+
+        if (!validarTexto(txtCantidad))
+            return false;
+
+        return true;
+    }
+
+
+    function Guardar() {
+        //e.preventDefault();
+
+        if (!ValidarForm()) {
+            alert("Error! Datos inválidos");
+            return;
+        }
+
+        var ModoOper="@ViewBag.ModoOper";
+
+        var ItemCarrito = {
+            ItemInventario: {
+                ID: "@Model.ItemInventario.Id",
+                IDCatalogo: @Model.ItemInventario.CatalogoId,
+                Catalogo: {
+                    ID: "@Model.ItemInventario.Catalogo.Id",
+                    Precio:"@Model.ItemInventario.Catalogo.Precio"
+                }
+            },
+            Cantidad: $("#txtCantidad")[0].value
+
+         };
+
+        var urlAccion = "";
+
+        //alert("ModoOper:" + ModoOper);
+
+        if (ModoOper == 'NEW')
+            urlAccion = "/Carrito/GuardarAlta";
+        else
+            urlAccion = "/Carrito/ModificarItem";
+
+        httpCall(urlAccion, "POST", ItemCarrito, () => { window.location = "/Carrito"; });
+
+
+        //window.location="/Carrito"
+    }
+</script>

@@ -1,0 +1,51 @@
+﻿@using ADRISTORE.BE
+
+@{
+    ViewBag.Title = "Listado";
+    Layout = "~/Views/_MasterPage.cshtml";
+}
+
+<h4>Listado de Items</h4>
+
+<div class="form-group form-group-xs btn-round-xs">
+    @if (ViewBag.Lista != null)
+    {
+        @foreach (Inventario item in ViewBag.Lista as List<Inventario>)
+        {
+        <table>
+            <tr>
+                <td>
+                    <b>Item:</b> @item.Catalogo.Nombre
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Cantidad Disponible :</b> @item.CantidadDisponible
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button type="button" onclick="PrepararAgregarItem(@item.Id)" class="btn-primary btn-xs btn-round-xs">Agregar al carrito</button>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="~/fotos/@item.Catalogo.Foto" width="200px" height="150px" />
+                </td>
+            </tr>
+
+        </table>
+            <br />
+            <br />
+        }
+    }
+</div>
+
+<script>
+    function PrepararAgregarItem(ID) {
+        window.location.href = "/Carrito/PrepararAgregarItem/" + ID;
+    }
+</script>

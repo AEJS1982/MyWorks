@@ -1,0 +1,68 @@
+﻿@using ADRISTORE.DTOs
+@model ADRISTORE.DTOs.DTOCarritoCompra
+
+@{
+    ViewBag.Title = "CarritoListadoView";
+    Layout = "~/Views/_MasterPage.cshtml";
+}
+
+@if (Model != null)
+{
+<h4>Tu Carrito de Compras: Total: $@Model.CalcularTotal()</h4>
+<p>Items: @Model.Items.Count</p>
+<div class="form-group form-group-xs input-group-xs"> 
+    <table>
+        <tr>
+            <td>
+                <button type="button" class="btn btn-primary btn-xs btn-round-xs" onclick="Checkout()">Checkout</button>
+            </td>
+            <td>
+                <button type="button" class="btn btn-primary btn-xs btn-round-xs" onclick="Limpiar()">Limpiar Carrito</button>
+            </td>
+        </tr>
+        @foreach (DTOCarritoItem item in Model.ListarItems() as List<DTOCarritoItem>)
+        {
+            <tr>
+                <td>
+                    <img src="/Fotos/@item.ItemInventario.Catalogo.Foto" width="200px" height="200px" />
+                </td>
+                <td>
+                    <table>
+                        <tr>
+                            <td>Item: @item.ItemInventario.Catalogo.Nombre</td>
+                        </tr>
+                        <tr>
+                            <td>Cantidad:@item.Cantidad</td>
+                        </tr>
+                        <tr>
+                            <td>SubTotal:@item.SubTotal</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <button type="button" class="btn btn-primary btn-xs btn-round-xs" onclick="Eliminar(@item.ID)">Eliminar</button>
+                    <button type="button" class="btn btn-primary btn-xs btn-round-xs" onclick="">Modificar</button>
+                </td>
+            </tr>
+
+        }
+    </table>
+</div>
+}
+<script>
+    function Eliminar(ID) {
+        var urlAccion = "/Carrito/QuitarItem/" + ID;
+
+        httpCall(urlAccion, "GET");
+        location.reload();
+    }
+
+    function Checkout() {
+        window.location.href="/Carrito/BeginCheckout";
+    }
+
+</script>
+

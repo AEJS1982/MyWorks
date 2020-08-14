@@ -1,0 +1,86 @@
+﻿@using AdriStoreWeb
+@using ADRISTORE.BE
+@model ADRISTORE.BE.Inventario
+
+@{
+    ViewBag.Title = "Item";
+    Layout = "~/Views/_MasterPage.cshtml";
+}
+
+<h4>Item de Inventario</h4>
+
+<div>
+    @if (Model != null)
+    {
+    <form role="form" class="form-group form-group-xs">
+        <div class="form-group">
+            <label for="cmbTipoItem">Tipo de Item:</label>
+            <select id="cmbTipoItem" class="form-control input-sm">
+                @foreach (Catalogo item in Helper.GetCatalogo())
+                {
+                    <option value="@item.Id">@item.Nombre</option>
+                }
+            </select>
+        </div>
+
+        <div>
+            <label for="txtCantidadDisponible">Cantidad Disponible:</label>
+            <input type="number" class="form-control input-sm" id="txtCantidadDisponible" value="@Model.CantidadDisponible" />
+        </div>
+
+        <div>
+            <label for="chkHabilitado">Habilitado:</label>
+            <input type="checkbox" id="chkHabilitado" checked="@Model.Habilitado" value="Habilitado">
+        </div>
+
+        <div class="form-group">
+            <label for="txtComentario">Nombre:</label>
+            <input type="text" class="form-control input-sm" id="txtComentario" value="@Model.Comentario" pattern="^([a-zA-Z0-9\s]*)$">
+        </div>
+
+        <button type="button" class="btn btn-default btn-sx btn-round-xs" onclick="Guardar()">Guardar</button>
+        <button type="button" class="btn btn-default btn-sx btn-round-xs" onclick="javascript:window.location('~/Inventario')">Cancelar</button>
+
+
+    </form>
+    }
+</div>
+
+<script>
+    function ValidarForm() {
+        //validar por regex
+        var txtComentario = $("#txtComentario")[0].value;
+
+        if (!validarTexto(txtComentario))
+            return false;
+
+        return true;
+    }
+
+    function Guardar() {
+
+        ValidarForm();
+
+        var ModoOper = "@ViewBag.ModoOper";
+
+        var ItemInventario = {
+            CatalogoId: $("#cmbTipoItem")[0].value,
+            CantidadDisponible: $("#txtCantidadDisponible")[0].value,
+            Habilitado: $("#chkHabilitado")[0].checked,
+            Comentario:$("#txtComentario")[0].value
+        };
+
+        var urlAccion = "";
+
+        if (ModoOper == "NEW") {
+            urlAccion = "/Inventario/AgregarItem";
+        }
+        else {
+            //Modificar
+            urlAccion = "/Inventario/ModificarItem";
+        }
+
+        httpCall(urlAccion, "POST", ItemInventario);
+    }
+</script>
+

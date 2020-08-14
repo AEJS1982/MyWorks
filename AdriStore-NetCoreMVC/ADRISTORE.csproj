@@ -1,0 +1,322 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="wwwroot\css\bootstrap.cosmo.min.css" />
+    <None Remove="wwwroot\css\bootstrap.min.css" />
+    <None Remove="wwwroot\css\bootstrap.superhero.min.css" />
+    <None Remove="wwwroot\css\buttons.bootstrap.min.css" />
+    <None Remove="wwwroot\css\buttons.dataTables.min.css" />
+    <None Remove="wwwroot\css\common.scss" />
+    <None Remove="wwwroot\css\Custom.css" />
+    <None Remove="wwwroot\css\dataTables.bootstrap.min.css" />
+    <None Remove="wwwroot\css\datatables.min.css" />
+    <None Remove="wwwroot\css\jquery.dataTables.min.css" />
+    <None Remove="wwwroot\css\mixins.scss" />
+    <None Remove="wwwroot\css\site.css" />
+    <None Remove="wwwroot\css\site.min.css" />
+    <None Remove="favicon.ico" />
+    <None Remove="wwwroot\fonts\glyphicons-halflings-regular.eot" />
+    <None Remove="wwwroot\fonts\glyphicons-halflings-regular.svg" />
+    <None Remove="wwwroot\fonts\glyphicons-halflings-regular.ttf" />
+    <None Remove="wwwroot\fonts\glyphicons-halflings-regular.woff" />
+    <None Remove="wwwroot\fonts\glyphicons-halflings-regular.woff2" />
+    <None Remove="wwwroot\fotos\C64.jfif" />
+    <None Remove="wwwroot\fotos\C64_joystick.jpg" />
+    <None Remove="wwwroot\images\banner1.svg" />
+    <None Remove="wwwroot\images\banner2.svg" />
+    <None Remove="wwwroot\images\banner3.svg" />
+    <None Remove="wwwroot\images\Logo.png" />
+    <None Remove="wwwroot\js\bootstrap.min.js" />
+    <None Remove="wwwroot\js\buttons.bootstrap.min.js" />
+    <None Remove="wwwroot\js\dataTables.bootstrap.min.js" />
+    <None Remove="wwwroot\js\dataTables.buttons.min.js" />
+    <None Remove="wwwroot\js\datatables.min.js" />
+    <None Remove="wwwroot\js\Helper.js" />
+    <None Remove="wwwroot\js\jquery.dataTables.min.js" />
+    <None Remove="wwwroot\js\jquery.js" />
+    <None Remove="wwwroot\js\jquery.validate.js" />
+    <None Remove="wwwroot\js\site.js" />
+    <None Remove="wwwroot\js\site.min.js" />
+    <None Remove="wwwroot\js\validator.min.js" />
+    <None Remove="lib\bootstrap\dist\css\bootstrap-theme.css" />
+    <None Remove="lib\bootstrap\dist\css\bootstrap-theme.css.map" />
+    <None Remove="lib\bootstrap\dist\css\bootstrap-theme.min.css" />
+    <None Remove="lib\bootstrap\dist\css\bootstrap-theme.min.css.map" />
+    <None Remove="lib\bootstrap\dist\css\bootstrap.css" />
+    <None Remove="lib\bootstrap\dist\css\bootstrap.css.map" />
+    <None Remove="lib\bootstrap\dist\css\bootstrap.min.css" />
+    <None Remove="lib\bootstrap\dist\css\bootstrap.min.css.map" />
+    <None Remove="lib\bootstrap\dist\fonts\glyphicons-halflings-regular.eot" />
+    <None Remove="lib\bootstrap\dist\fonts\glyphicons-halflings-regular.svg" />
+    <None Remove="lib\bootstrap\dist\fonts\glyphicons-halflings-regular.ttf" />
+    <None Remove="lib\bootstrap\dist\fonts\glyphicons-halflings-regular.woff" />
+    <None Remove="lib\bootstrap\dist\fonts\glyphicons-halflings-regular.woff2" />
+    <None Remove="lib\bootstrap\dist\js\bootstrap.js" />
+    <None Remove="lib\bootstrap\dist\js\bootstrap.min.js" />
+    <None Remove="lib\bootstrap\dist\js\npm.js" />
+    <None Remove="lib\bootstrap\LICENSE" />
+    <None Remove="lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js" />
+    <None Remove="lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js" />
+    <None Remove="lib\jquery-validation-unobtrusive\LICENSE.txt" />
+    <None Remove="lib\jquery-validation\dist\additional-methods.js" />
+    <None Remove="lib\jquery-validation\dist\additional-methods.min.js" />
+    <None Remove="lib\jquery-validation\dist\jquery.validate.js" />
+    <None Remove="lib\jquery-validation\dist\jquery.validate.min.js" />
+    <None Remove="lib\jquery-validation\LICENSE.md" />
+    <None Remove="lib\jquery\dist\jquery.js" />
+    <None Remove="lib\jquery\dist\jquery.min.js" />
+    <None Remove="lib\jquery\dist\jquery.min.map" />
+    <None Remove="lib\jquery\LICENSE.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="favicon.ico">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="lib\bootstrap\dist\css\bootstrap-theme.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="lib\bootstrap\dist\css\bootstrap-theme.css.map">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="lib\bootstrap\dist\css\bootstrap-theme.min.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="lib\bootstrap\dist\css\bootstrap-theme.min.css.map">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="lib\bootstrap\dist\css\bootstrap.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="lib\bootstrap\dist\css\bootstrap.css.map">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="lib\bootstrap\dist\css\bootstrap.min.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="lib\bootstrap\dist\css\bootstrap.min.css.map">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="lib\bootstrap\dist\fonts\glyphicons-halflings-regular.eot">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="lib\bootstrap\dist\fonts\glyphicons-halflings-regular.svg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="lib\bootstrap\dist\fonts\glyphicons-halflings-regular.ttf">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="lib\bootstrap\dist\fonts\glyphicons-halflings-regular.woff">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="lib\bootstrap\dist\fonts\glyphicons-halflings-regular.woff2">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="lib\bootstrap\dist\js\bootstrap.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="lib\bootstrap\dist\js\bootstrap.min.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="lib\bootstrap\dist\js\npm.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="lib\bootstrap\LICENSE">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="lib\jquery-validation-unobtrusive\LICENSE.txt">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="lib\jquery-validation\dist\additional-methods.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="lib\jquery-validation\dist\additional-methods.min.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="lib\jquery-validation\dist\jquery.validate.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="lib\jquery-validation\dist\jquery.validate.min.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="lib\jquery-validation\LICENSE.md">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="lib\jquery\dist\jquery.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="lib\jquery\dist\jquery.min.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="lib\jquery\dist\jquery.min.map">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="lib\jquery\LICENSE.txt">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Views\Home\About.cshtml" />
+    <None Include="Views\Home\Contact.cshtml" />
+    <None Include="Views\Home\Index.cshtml" />
+    <None Include="Views\Home\Privacy.cshtml" />
+    <None Include="Views\Shared\_CookieConsentPartial.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\Main\" />
+    <Folder Include="Views\Master\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore" Version="2.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.CookiePolicy" Version="2.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.HttpsPolicy" Version="2.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Session" Version="2.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="2.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="wwwroot\css\bootstrap.cosmo.min.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\css\bootstrap.min.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\css\bootstrap.superhero.min.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\css\buttons.bootstrap.min.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\css\buttons.dataTables.min.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\css\common.scss">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\css\Custom.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\css\dataTables.bootstrap.min.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\css\datatables.min.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\css\Gridmvc.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\css\jquery.dataTables.min.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\css\mixins.scss">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\css\site.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\fonts\glyphicons-halflings-regular.eot">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\fonts\glyphicons-halflings-regular.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\fonts\glyphicons-halflings-regular.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\fonts\glyphicons-halflings-regular.woff">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\fonts\glyphicons-halflings-regular.woff2">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\fotos\C64.jfif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\fotos\C64_joystick.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\js\bootstrap.min.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\js\buttons.bootstrap.min.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\js\dataTables.bootstrap.min.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\js\dataTables.buttons.min.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\js\datatables.min.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\js\Helper.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\js\jquery.dataTables.min.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\js\jquery.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\js\site.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\js\validator.min.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="client.ncconf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

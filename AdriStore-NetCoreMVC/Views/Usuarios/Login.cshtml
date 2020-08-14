@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/_MasterPage.cshtml";
+}
+
+<h3>Login</h3>
+
+<div>
+    <form role="form" class="form-group">
+        <table>
+            <tr>
+                <td><label for="txtUsuario">Usuario:</label></td>
+                <td><input type="text" class="input-control" id="txtUsuario" /></td>
+            </tr>
+            <tr>
+                <td><label for="txtPassword">Password:</label></td>
+                <td><input type="password" class="input-control" id="txtPassword" /></td>
+            </tr>            
+            <tr>
+                <td><button type="button" class="btn btn-primary btn-xs btn-round-xs" onclick="DoLogin()">Ingresar</button></td>
+                <td><button type="reset" class="btn btn-primary btn-xs btn-round-xs">Limpiar</button></td>
+            </tr>
+            <tr>
+                <td colspan="2"><a href="/Clientes/PrepararAlta">No esta registrado? Clickee aquí para registrarse!</a></td>
+            </tr>
+        </table>
+
+        <!--<button type="button" class="btn btn-default" onclick="DoLogin()">Ingresar</button>-->
+      
+        
+       
+
+    </form>
+</div>
+
+<script>
+    function DoLogin() {
+        var Usuario = {
+            Nombre: $("#txtUsuario")[0].value,
+            Password:$("#txtPassword")[0].value
+        }
+
+        var urlAccion = "/Usuarios/DoLogin";
+
+        httpCall(urlAccion, "POST", Usuario);
+    }
+</script>
+
+
+

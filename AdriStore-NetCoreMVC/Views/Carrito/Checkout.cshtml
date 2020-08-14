@@ -1,0 +1,42 @@
+﻿@using AdriStoreWeb.BE
+@using AdriStoreWeb.BLL
+
+@model CarritoCompra
+
+@{
+    ViewBag.Title = "Checkout";
+    Layout = "~/Views/_MasterPage.cshtml";
+}
+
+<h4>Checkout</h4>
+
+<div class="form-group input-group-xs">
+    <table border="1" width="150px">
+        <tr>
+            <td><a href="@Model.GetLinkPago()">Pagar</a></td>
+        </tr>
+        <tr>
+            <td><b>Total:</b></td>
+            <td><b>@Model.Total</b></td>
+        </tr>
+    </table>
+
+    <table border="1" width="250px">
+        <thead>
+            <tr>
+                <td><b>Item</b></td>
+                <td><b>SubTotal</b></td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Items)
+            {
+                <tr>
+                    <td>@item.ItemInventario.Catalogo.Nombre</td>
+                    <td>@item.SubTotal</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>

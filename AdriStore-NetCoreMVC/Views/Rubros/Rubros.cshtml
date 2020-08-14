@@ -1,0 +1,46 @@
+﻿@model IEnumerable<ADRISTORE.BE.RubroCatalogo>
+
+@{
+    ViewBag.Title = "Rubros";
+    Layout = "~/Views/_MasterPage.cshtml";
+}
+
+<h4>Rubros</h4>
+
+<input type="button" class="btn btn-primary btn-xs btn-round-xs" onclick="AgregarItem()" value="Agregar Rubro" />
+
+<div class="form-group">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <td>ID</td>
+                <td>Nombre</td>
+                <td>Fecha de Alta</td>
+                <td>Habilitado</td>
+            </tr>
+        </thead>
+
+        @if (Model != null)
+        {
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Nombre</td>
+                    <td>@item.FechaAlta</td>
+                    <td><input type="checkbox" checked="@item.Habilitado"/></td>
+                    <td><a href="/Rubros/PrepararModificarItem/@item.Id">Edit</a></td>
+                    <td><a href="/Rubros/EliminarItem/@item.Id">Delete</a></td>
+                </tr>
+            }
+        }
+    </table>
+</div>
+
+
+<script>
+    function AgregarItem() {
+        window.location.href = "/Rubros/PrepararAgregarItem/"
+    }
+
+</script>

@@ -1,0 +1,66 @@
+﻿@using AdriStoreWeb
+@using ADRISTORE.BE
+@model ADRISTORE.BE.PedidoCab
+
+@{
+    ViewBag.Title = "Pedido";
+    Layout = "~/Views/_MasterPage.cshtml";
+}
+
+<h4>Pedido</h4>
+
+<div>
+    @if (Model != null)
+    {
+    <form role="form" class="form-group form-group-xs">
+        <div class="form-group">
+            <label for="cmbClientes" class="form-control">Cliente:</label>
+            <select id="cmbClientes" class="form-control">
+                @foreach (Cliente item in Helper.GetListaClientes() as List<Cliente>)
+                {
+                    if (item.Id == Model.cliente.Id)
+                    {
+                        <option value="@item.Id" class="form-control">@item.Apellido, @item.Nombre</option>
+                    }
+                    else
+                    {
+                        <option value="@item.Id" selected="selected" class="form-control">@item.Apellido, @item.Nombre</option>
+                    }
+                }
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="txtFechaAlta" class="form-control">Fecha Alta:</label>
+            <input type="text" class="form-control" id="txtFechaAlta" value="@Model.FechaAlta">
+        </div>
+
+        <div class="form-group">
+            <label for="cmbEstado" class="form-control">Estado:</label>
+            <select id="cmbEstado" class="form-control">
+                <option value="I">Iniciado</option>
+                <option value="E">Entregado</option>
+                <option value="C">Cancelado</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="txtFechaEntrega" class="form-control">Fecha Entrega:</label>
+            <input type="date" id="txtFechaEntrega" class="form-control" value="@Model.FechaEntrega">
+        </div>
+
+        <div class="form-group">
+            <label for="txtTotal" class="form-control">Total:</label>
+            <input type="number" id="txtTotal" class="form-control" value="@Model.Total">
+        </div>
+    </form>
+    }
+    <!-- Dibujar tabla con detalles -->
+</div>
+
+<script>
+    document.onload = function () {
+        cmbEstado.selectedIndex=@Model.Estado;
+
+    }
+</script>

@@ -1,0 +1,85 @@
+﻿@using AdriStoreWeb.BE
+@model IEnumerable<ADRISTORE.BE.PedidoCab>
+
+@{
+    ViewBag.Title = "Pedidos";
+    Layout = "~/Views/_MasterPage.cshtml";
+}
+
+<h4>Pedidos</h4>
+
+<div class="form-group form-rounded">
+    <table id="filtro">
+        <tr>
+            <td>Fecha Desde:</td>
+            <td><input type="date" class="input-control" id="txtFechaDesde" value="@DateTime.Now.AddDays(-15)" /></td>
+        </tr>
+        <tr>
+            <td>Fecha Hasta:</td>
+            <td><input type="date" class="input-control" id="txtFechaHasta" value="@DateTime.Now"/></td>
+        </tr>
+        <tr>
+            <td>Estado:</td>
+            <td>
+                <div class="dropdown">
+                    <select id="cmbEstado" class="input-control input-round-xs" style="color:black">
+                        <option value="I">Iniciado</option>
+                        <option value="E">Entregado</option>
+                        <option value="C">Cancelado</option>
+                        <option value="T">Todos</option>
+                    </select>
+                </div>
+            </td>
+
+        </tr>
+        <tr>
+            <td><input type="button" class="btn btn-primary btn-xs btn-round-xs" value="Buscar" onclick="Buscar()" /></td>
+        </tr>
+    </table>
+</div>
+<br />
+
+
+<div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <td>ID</td>
+                <td>Fecha de Alta</td>
+                <td>Cliente</td>
+                <td>Estado</td>
+                <td>Total</td>
+            </tr>
+        </thead>
+        
+        @if (Model != null)
+        {
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @item.Id
+                    </td>
+                    <td>@item.FechaAlta</td>
+                    <td>@item.cliente.Nombre</td>
+                    <td>@item.Estado</td>
+                    <td>@item.Total</td>
+                </tr>
+            }
+        }
+    </table>
+</div>
+
+
+
+<script>
+function Buscar() {
+    var estadoSelecc = cmbEstado.value;
+    var fechaInicialSelecc = this.txtFechaDesde.value;
+    var fechaFinalSelecc = this.txtFechaHasta.value;
+
+    var urlAccion = "/Pedidos/Buscar?estado=" + estadoSelecc + "&fechaInicial=" + fechaInicialSelecc + "&fechaFinal=" + fechaFinalSelecc;
+    window.location = urlAccion;
+    //httpCall(urlAccion, "GET",null);
+}
+</script>

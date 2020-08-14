@@ -1,0 +1,37 @@
+﻿
+
+@{
+    ViewBag.Title = "MainPage";
+    Layout = "~/Views/_MasterPage.cshtml";
+}
+
+<div align="center">
+    <h4>Bienvenidos a la tienda!</h4>
+</div>
+
+<div class="container ">
+    <div class="col-md-3">
+        <a class="btn btn-block btn-lg btn-success btn-round-lg" data-toggle="modal" data-target="#mymodal">
+            <i class="fa fa-users" id="icone_grande"></i>
+            <span class="texto_grande"><i class="glyphicon glyphicon-user"></i> Usuarios</span>
+        </a>
+    </div>
+    <div class="col-md-3">
+        <a class="btn btn-block btn-lg btn-danger btn-round-lg" data-toggle="modal" data-target="#mymodal">
+            <i class="fa fa-user" id="icone_grande"></i>
+            <span class="texto_grande"><i class="glyphicon glyphicon-book"></i> Catalogo</span>
+        </a>
+    </div>
+    <div class="col-md-3">
+        <a class="btn btn-block btn-lg btn-primary btn-round-lg" data-toggle="modal" data-target="#mymodal">
+            <i class="fa fa-cog fa-spin" id="icone_grande"></i>
+            <span class="texto_grande"><i class="glyphicon glyphicon-tags"></i> Rubros</span>
+        </a>
+    </div>
+    <div class="col-md-3">
+        <a class="btn btn-block btn-lg btn-warning btn-round-lg" data-toggle="modal" data-target="#mymodal">
+            <i class="fa fa-pied-piper-alt" id="icone_grande"></i>
+            <span class="texto_grande"><i class="glyphicon glyphicon-pencil"></i> Pedidos</span>
+        </a>
+    </div>
+</div>

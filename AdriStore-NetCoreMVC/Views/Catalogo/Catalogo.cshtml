@@ -1,0 +1,54 @@
+﻿@using AdriStoreWeb.BE
+@model IEnumerable<ADRISTORE.BE.Catalogo>
+
+@{
+    ViewBag.Title = "Catalogo";
+    Layout = "~/Views/_MasterPage.cshtml";
+}
+
+<h4>Catalogo</h4>
+<input type="button" class="btn btn-primary btn-xs btn-round-xs" onclick="AgregarItem()" value="Agregar Item" />
+
+<div class="form-group">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <td>ID</td>
+                <td>Nombre</td>
+                <td>Precio</td>
+                <td>Fecha de Alta</td>
+                <td>Rubro</td>
+                <td>Habilitado</td>
+
+            </tr>
+        </thead>
+
+        @if (Model != null)
+        {
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Nombre</td>
+                    <td>@item.Precio</td>
+                    <td>@item.FechaAlta</td>
+                    <td>@item.Rubro.Nombre</td>
+                    <!--<td><input type="checkbox" value="@item.Habilitado"/></td>-->
+                    <td>@item.Habilitado</td>
+                    <td><a href="/Catalogo/PrepararModificarItem/@item.Id">Edit</a></td>
+                    <td><a href="/Catalogo/EliminarItem/@item.Id">Delete</a></td>
+                </tr>
+            }
+        }
+    </table>
+</div>
+
+<script>
+    function AgregarItem() {
+        window.location.href="/Catalogo/PrepararAgregarItem";
+    }
+
+</script>
+
+
+
