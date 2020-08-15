@@ -4,3 +4,5 @@ Hello! Welcome to my github! You can see some of my creations here:
 
 *) MiniAgenda - a quick demo on how to build a small Agenda using React with Redux Thunk for the frontend + NodeJS/Express for the backend. The storage is a simple text file in
 JSON format similar to MongoDB
+
+*)Data Science - a few examples of data science algorithms such as K-Means clustering , Polynomic regressions, Bayes classificators and some Neural Networks with Numpy, Pandas,SciKit and MatPlotLib
