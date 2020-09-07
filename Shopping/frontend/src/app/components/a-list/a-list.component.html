@@ -1,0 +1,47 @@
+<p>a-list works!</p>
+
+<div class="jumbotron">
+    <h1>List : {{listData.name}}</h1>
+</div>
+  
+<div class="container">
+    <button (click)="addItem()" class="btn btn-info btn-sm">Add Item</button>
+    <div id="ItemEditor" *ngIf="showModal">
+        <table class="table">
+            <tr>
+                <td>Item Name:</td>
+                <td><input type="text" id="txtItemName" [(ngModel)]="itemName"/></td>
+            </tr>
+            <tr>
+                <td>Quantity:</td>
+                <td><input type="number" id="txtQuantity"  [(ngModel)]="itemQuantity"/></td>
+            </tr>
+            <tr>
+                <td><button (click)="saveItem()" class="btn btn-info btn-sm">Save</button></td>
+                <td><button (click)="hideModal()" class="btn btn-info btn-sm">Cancel</button></td>
+            </tr>
+        </table>
+    </div>
+    <table width="100%" class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Item Name</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Price</th>
+                <th scope="col">Subtotal</th>
+                <th scope="col">Bought</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of listData.items">
+                <td>{{item.itemName}}</td>
+                <td>{{item.quantity}}</td>
+                <td>{{item.price}}</td>
+                <td>{{item.subTotal}}</td>
+                <td><input type="checkbox" checked={{item.bought}}></td>
+                <td><button (click)="deleteItem(item.ID)" class="btn btn-info btn-sm">Delete</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+  

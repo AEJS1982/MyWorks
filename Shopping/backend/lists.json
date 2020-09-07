@@ -1,0 +1,18 @@
+{"lists":[
+    {
+         "listID":1,
+         "name":"Grocery_list",
+         "items":[
+            {"ID":1, "listID":1 ,"itemName":"Apple","quantity":10},
+            {"ID":2, "listID":1 ,"itemName":"Oranges","quantity":12}
+         ]
+    },
+    {
+         "listID":2,
+         "name":"SuperMarket_list",
+         "items":[
+            {"ID":1, "listID":2 ,"itemName":"Bread","quantity":4},
+            {"ID":2, "listID":2 ,"itemName":"Ham","quantity":2} 
+         ]
+    }       
+]}
