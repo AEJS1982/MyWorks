@@ -10,7 +10,7 @@ import { applySourceSpanToExpressionIfNeeded } from '@angular/compiler/src/outpu
 })
 export class wsProxy {
   listCache:shoppingList[];
-  
+  //test!
 
   private webServiceURL = 'http://localhost:3000/api/';
   //private webServiceURL=environment.myEndpoint;
