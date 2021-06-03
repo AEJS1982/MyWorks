@@ -15,11 +15,11 @@ I intend to add some more small samples like Bayes classificators and some Neura
 v0.9 - First release. Hand-coded CSS styles, auth guard, mock login with mock token, template-driven with hand-crafted validations. 
 Minimal use of RxJS to simulate calls to an HTTP service
 
-v1.1 - Second release. This will include NgRx+more RxJS to handle the effects.
+v1.1 - Second release. Initial support for CSS Flexbox hand-made mini-framework. Also, this release will include NgRx+more RxJS to handle the effects.
 
 v1.2 - Reactive Forms instead of template-driven two-way bound forms
 
-v1.3 - FlexBox/CSS Grid support for layout (TBD)
+v1.3 - Better FlexBox/CSS Grid support for layout (TBD)
 
 v1.4 - Jasmine support
 
