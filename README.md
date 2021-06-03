@@ -19,6 +19,10 @@ v1.1 - Second release. This will include NgRx+more RxJS to handle the effects.
 
 v1.2 - Reactive Forms instead of template-driven two-way bound forms
 
-v1.3 - Possible additions might include : Jasmine tests
+v1.3 - FlexBox/CSS Grid support for layout (TBD)
 
-v1.4 - Possible Docker support
+v1.4 - Jasmine support
+
+v1.5 - Possible support for Docker (Alpine+nginx base system)
+
+
