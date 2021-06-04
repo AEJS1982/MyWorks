@@ -1,0 +1,13 @@
+<h2>CONTACT LIST</h2>
+
+<div>
+    <button (click)="addNew()">Add new</button>
+    <table>
+        <tr *ngFor="let item of this.contacts$ | async">
+            <td><span>{{item.firstName | uppercase}} {{item.lastName | uppercase}}</span></td>
+            <td><button (click)="editPerson(item)">Edit</button></td>
+            <td><button (click)="deletePerson(item)">Delete</button></td>            
+        </tr>
+       
+    </table>
+</div>
