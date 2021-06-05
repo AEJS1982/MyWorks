@@ -1,0 +1,10 @@
+<h2>CONTACT LIST</h2>
+
+<div>
+    <button (click)="addNew()">Add new</button>
+</div>
+<div style="height:50%;">
+    <div *ngFor="let item of this.contacts" >
+        <app-contact-list-item [item]="item" (changeDone)="getChangeInfo($event)"></app-contact-list-item>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+<h2>Contact Editor</h2>
+
+<div class="formulario">
+    <label>First Name:</label>
+    <input type="text" id="txtFirstName" [(ngModel)]="model.firstName" />
+    <label>Last Name:</label>
+    <input type="text" id="txtLastName" [(ngModel)]="model.lastName" />
+    <label>Phone Number:</label>
+    <input type="number" id="txtPhoneNumber" [(ngModel)]="model.phoneNumber" />
+    <button (click)="save()">Save</button>
+    <button (click)="cancel()">Cancel</button>
+    <p style="color:red" *ngIf="errors.length>0">Please fix:</p>
+    <ul style="color:red">
+        <li *ngFor="let error of errors">{{error}}</li>
+    </ul>
+</div>
+    
