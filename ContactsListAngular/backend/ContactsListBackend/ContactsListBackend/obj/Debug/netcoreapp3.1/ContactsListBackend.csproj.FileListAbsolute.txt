@@ -21,3 +21,4 @@ E:\GITHUB\MyWorks\ContactsListAngular\backend\ContactsListBackend\ContactsListBa
 E:\GITHUB\MyWorks\ContactsListAngular\backend\ContactsListBackend\ContactsListBackend\obj\Debug\netcoreapp3.1\ContactsListBackend.csproj.CopyComplete
 E:\GITHUB\MyWorks\ContactsListAngular\backend\ContactsListBackend\ContactsListBackend\bin\Debug\netcoreapp3.1\contacts.json
 E:\GITHUB\MyWorks\ContactsListAngular\backend\ContactsListBackend\ContactsListBackend\bin\Debug\netcoreapp3.1\users.json
+E:\GITHUB\MyWorks\ContactsListAngular\backend\ContactsListBackend\ContactsListBackend\obj\Debug\netcoreapp3.1\ContactsListBackend.csprojAssemblyReference.cache

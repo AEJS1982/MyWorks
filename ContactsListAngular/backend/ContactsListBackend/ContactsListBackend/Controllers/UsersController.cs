@@ -21,9 +21,9 @@ namespace ContactsListBackend.Controllers
 
         // GET: api/<UsersController>
         [HttpGet]
-        public string Get([FromBody] string name, string password)
+        public string Get([FromBody] string name, string pwd)
         {
-            return _repo.Login(name, password);
+            return _repo.Login(name, pwd);
         }
 
         // GET api/<UsersController>/5

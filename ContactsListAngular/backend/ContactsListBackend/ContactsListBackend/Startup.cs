@@ -32,6 +32,17 @@ namespace ContactsListBackend
             services.AddTransient<IContactsRepository,ContactRepository>();
             services.AddTransient<IUsersRepository, UsersRepository>();
             //services.Configure<MyConfig>(Configuration.GetSection("appConfig"));
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: "CORSPolicy",
+                    builder =>
+                    {
+                        builder.AllowAnyMethod();
+                        builder.AllowAnyMethod();
+                        builder.WithOrigins("http://localhost:4200");
+                    });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -42,11 +53,13 @@ namespace ContactsListBackend
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseTokenCheckerMiddleware();
+            //app.UseTokenCheckerMiddleware();
 
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors("CORSPolicy");
 
             app.UseAuthorization();
 
