@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { ContactListComponent } from './components/contact-list/contact-list.component';
 import { ContactEditorComponent } from './components/contact-editor/contact-editor.component';
 import { LoginComponent } from './components/login/login.component';
-import { ContactService } from './services/contact-service';
+import { ContactServiceMock } from './services/contact-service-mock';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { authGuard } from './guards/authGuard';
 import { StoreModule } from '@ngrx/store';
@@ -17,6 +17,9 @@ import * as fromUsers from './reducers/users.reducer';
 import * as fromPersona from './reducers/selectedPerson.reducer';
 import { ContactListItemComponent } from './components/contact-list-item/contact-list-item.component';
 import { ContactEditorComponentv2 } from './components/contact-editor-v2/contact-editor.component-v2';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ContactService } from './services/contact-service';
+import { SecurityTokenInterceptor } from './interceptors/sectoken-interceptor';
 
 let rootReducer = {
   contacts:fromContact.reducer,
@@ -35,6 +38,7 @@ let rootReducer = {
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
@@ -42,7 +46,11 @@ let rootReducer = {
     EffectsModule.forRoot([ContactsEffects])
   ],
   exports:[ReactiveFormsModule],
-  providers: [ContactService,authGuard],
+  providers: [ContactService,authGuard,
+    {provide: HTTP_INTERCEPTORS,
+    useClass: SecurityTokenInterceptor,
+    multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { 

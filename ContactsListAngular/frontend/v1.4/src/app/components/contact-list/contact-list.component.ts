@@ -25,7 +25,7 @@ export class ContactListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
+    this.store.dispatch(getContacts());
   }
   
   ngOnDestroy() {

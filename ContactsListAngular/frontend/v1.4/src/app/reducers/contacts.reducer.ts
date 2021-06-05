@@ -13,13 +13,13 @@ const contactsReducer=createReducer(
     on(ContactActions.getContacts, (state) => { 
         return state} ),
     on(ContactActions.getContactsSuccess, (state,action) => {
+        debugger;
         return {...state, contacts:action.payload}
     }),
     on(ContactActions.addNewContact, (state,action) => {
         return {...state, selectedPerson:new Person(0,"","",0,"")} ;
     }),
     on(ContactActions.addNewContactSuccess, (state,action) => {
-        debugger;
         var updatedContacts=state.contacts;
         var newPerson=new Person(0,"","",0,"");
         newPerson.firstName=action.payload.firstName;

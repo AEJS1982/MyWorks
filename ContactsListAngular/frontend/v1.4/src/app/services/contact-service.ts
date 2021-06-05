@@ -1,44 +1,35 @@
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable, of } from 'rxjs';
-import { setInitialData } from '../actions/contacts.actions';
 import { Person } from '../entities/person';
-import { currentState } from '../store/state';
-
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ContactService {
+  contacts:Person[];
+
+  constructor(private store:Store,private http: HttpClient) { 
+    this.contacts=[];
+  }  
   
-
-  constructor(private store:Store,private router:Router) { 
-    if (currentState.contacts.length==0) {
-      var data=[];
-      var p1=new Person(1,"King","Diamond",12345678,"kbendix@mf.com");
-      data.push(p1);
-      var p2=new Person(2,"Michael","Denner",90000001,"mdenner@mf.com");
-      data.push(p2);
-      var p3=new Person(3,"Hank","Shermann",78891278,"hshermann@mf.com");
-      data.push(p3);
-      this.store.dispatch(setInitialData({payload:data}));
-    }
-  }
-
   addContact(p:Person):Observable<Person> {
-    //currentState.contacts.push(p);    
-    this.router.navigate(['/contacts']);
-    return of(p);
+    //Call HTTP service
+    return this.http.post<Person>(environment.backend_url + "/contacts", {p});
+    
   }
 
-  deleteContact(id:number):Observable<number> {
-    currentState.contacts=currentState.contacts.filter(x => x.id!=id);
-    return of(0);
+  deleteContact(id:number):Observable<Boolean> {
+    //Call HTTP service
+    return this.http.delete<Boolean>(environment.backend_url + "/contacts/" + {id});
   }
 
   getContacts() : Observable<Person[]> 
   {
-    return of(currentState.contacts);
+    return this.http.get<Person[]>(environment.backend_url + "/contacts");
   }
+    
+  
 }

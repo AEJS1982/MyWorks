@@ -14,26 +14,28 @@ export class ContactsEffects {
         private cs: ContactService
     ) {}
 
-    getContacts$ = createEffect(() => 
-        this.actions$.pipe(
-        ofType(ContactActions.getContacts),
-        switchMap(() =>
-                this.cs.getContacts().pipe(
-                    map((res: Person[]) => {
-                        return ContactActions.getContactsSuccess({payload:res})
-                        }
-                    ),
-                    catchError(error => {
-                        return of(
-                            ContactActions.getContactsError(error)
-                        );
-                    })
-                )
-            )
-    ));
+    getContacts$ = createEffect(() => {
+        return this.actions$.pipe(
+            ofType(ContactActions.getContacts),
+            switchMap(action => {
+                    console.log(action);
 
-    saveContact$=createEffect(() => 
-        this.actions$.pipe(
+                    return this.cs.getContacts().pipe(
+                        map((res: Person[]) => {
+                            return ContactActions.getContactsSuccess({payload:res})
+                            }
+                        ),
+                        catchError(error => {
+                            return of(
+                                ContactActions.getContactsError(error)
+                            );
+                        })
+                    )}
+            ))
+    });
+
+    saveContact$=createEffect(() =>  {
+        return this.actions$.pipe(
             ofType(ContactActions.saveContact),
             switchMap(action => this.cs.addContact(action.payload).pipe(
                 map((res:any) => {
@@ -45,7 +47,7 @@ export class ContactsEffects {
                     );
                 })
             ))
-    ))
+    )})
 
     /*deleteContact$=createEffect(() => 
         this.actions$.pipe(
