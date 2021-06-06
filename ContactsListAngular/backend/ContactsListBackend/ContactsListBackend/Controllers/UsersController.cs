@@ -1,4 +1,5 @@
-﻿using ContactsListBackend.Repositories;
+﻿using ContactsListBackend.Models;
+using ContactsListBackend.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -19,36 +20,19 @@ namespace ContactsListBackend.Controllers
             _repo = repo;
         }
 
-        // GET: api/<UsersController>
-        [HttpGet]
-        public string Get([FromBody] string name, string pwd)
+        // POST: api/<UsersController>
+        [HttpPost]
+        public string Login([FromBody] User usuario)
         {
-            return _repo.Login(name, pwd);
+            return _repo.Login(usuario.Name, usuario.Password);
         }
 
         // GET api/<UsersController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        [HttpGet("{userName}")]
+        public User Get(string userName)
         {
-            return "value";
+            return _repo.GetByName(userName);
         }
 
-        // POST api/<UsersController>
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
-
-        // PUT api/<UsersController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<UsersController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
     }
 }

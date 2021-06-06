@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Primitives;
+﻿using ContactsListBackend.Models;
+using Microsoft.Extensions.Primitives;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,5 +11,6 @@ namespace ContactsListBackend.Repositories
     {
         string Login(string name,string password);
         bool ValidateToken(string token);
+        User GetByName(string name);
     }
 }

@@ -11,6 +11,7 @@ export class LoginService {
   constructor(private http: HttpClient) { }
 
   public login(user:string, password:string) {
+    debugger;
     return this.http.post<string>(environment.backend_url + "/users",{name:user,pwd:password});
   }
 }

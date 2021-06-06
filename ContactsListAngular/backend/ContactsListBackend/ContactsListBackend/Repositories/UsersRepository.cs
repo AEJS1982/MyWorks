@@ -16,11 +16,15 @@ namespace ContactsListBackend.Repositories
             this.users = this.LoadData();
         }
 
+        public User GetByName(string name)
+        {
+            return this.users.Where(x => x.Name == name).FirstOrDefault();
+        }
 
         public string Login(string name, string password)
         {
             var auxUser = this.users.Where(x => x.Name == name).FirstOrDefault();
-            var Token = String.Empty;
+            var Token = "ERROR";
             var Randomizer = new Random();
             
             if (auxUser != null)

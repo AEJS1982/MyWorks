@@ -39,8 +39,9 @@ namespace ContactsListBackend
                     builder =>
                     {
                         builder.AllowAnyMethod();
-                        builder.AllowAnyMethod();
-                        builder.WithOrigins("http://localhost:4200");
+                        builder.AllowAnyHeader();
+                        builder.AllowAnyOrigin();
+                        //builder.WithOrigins("http://localhost:4200");
                     });
             });
         }
