@@ -10,8 +10,8 @@ export class LoginService {
 
   constructor(private http: HttpClient) { }
 
-  public login(user:string, password:string) {
+  public login(user:string, pwd:string) {
     debugger;
-    return this.http.post<string>(environment.backend_url + "/users",{name:user,pwd:password});
+    return this.http.post<string>(environment.backend_url + "/users",{name:user,password:pwd});
   }
 }

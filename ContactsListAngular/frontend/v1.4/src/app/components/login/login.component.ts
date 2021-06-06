@@ -22,14 +22,6 @@ export class LoginComponent implements OnInit {
   }
 
   doLogin(): void {
-    /*if (this.user.accountName=="ADMIN" && this.user.password=="1234")
-    {
-      sessionStorage.setItem("isLoginOK","true");
-      this.router.navigate(['/contacts']);
-    }
-    else {
-      this.error="Login Incorrect";
-    }*/
     this.loginSvc.login(this.user.accountName,this.user.password).subscribe(
       data => {
         if (data.length>0) {
