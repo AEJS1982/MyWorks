@@ -1,6 +1,7 @@
 ﻿using ContactsListBackend.Models;
 using ContactsListBackend.Repositories;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +25,7 @@ namespace ContactsListBackend.Controllers
         [HttpPost]
         public string Login([FromBody] User usuario)
         {
-            return _repo.Login(usuario.Name, usuario.Password);
+            return JsonConvert.SerializeObject(_repo.Login(usuario.Name, usuario.Password));
         }
 
         // GET api/<UsersController>/5

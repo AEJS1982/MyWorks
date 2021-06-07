@@ -24,6 +24,7 @@ export class LoginComponent implements OnInit {
   doLogin(): void {
     this.loginSvc.login(this.user.accountName,this.user.password).subscribe(
       data => {
+        debugger;
         if (data.length>0) {
           sessionStorage.setItem("token",data);
           sessionStorage.setItem("isLoginOK","true");
@@ -33,7 +34,8 @@ export class LoginComponent implements OnInit {
         }
       },
       error => {
-
+        debugger;
+        console.log(error);
       }
     )
         

@@ -1,0 +1,17 @@
+services: 
+    apiservice:
+        container_name: agenda-angular-backend
+        build: 
+            context: ./backend/ContactsListBackend/ContactsListBackend
+            dockerfile: Dockerfile
+        ports: 
+          - "5001:443"
+    uiservice:
+        container_name: agenda-angular
+        build: 
+            context: ./frontend/v1.4
+            dockerfile: Dockerfile
+        ports: 
+          - "8080:80"
+        depends_on: 
+          - apiservice
