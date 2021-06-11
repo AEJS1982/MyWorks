@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SNSSender", "SNSSender\SNSSender.csproj", "{C8844EF9-FBBE-492D-A3A8-7B8A497A071D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQSReceiver", "SQSReceiver\SQSReceiver.csproj", "{F090D8F5-8B0F-4216-A0C9-53BA1A6A16E3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C8844EF9-FBBE-492D-A3A8-7B8A497A071D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8844EF9-FBBE-492D-A3A8-7B8A497A071D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8844EF9-FBBE-492D-A3A8-7B8A497A071D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8844EF9-FBBE-492D-A3A8-7B8A497A071D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F090D8F5-8B0F-4216-A0C9-53BA1A6A16E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F090D8F5-8B0F-4216-A0C9-53BA1A6A16E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F090D8F5-8B0F-4216-A0C9-53BA1A6A16E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F090D8F5-8B0F-4216-A0C9-53BA1A6A16E3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {49958481-8FCF-4AA5-913F-059253D43ED5}
+	EndGlobalSection
+EndGlobal
