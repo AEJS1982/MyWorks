@@ -13,19 +13,13 @@ I intend to add some more small samples like Bayes classificators and some Neura
 *)AgendaAngular (Angular Contact List)- this project was made to practice different technologies centered around Angular. Here's the version history:
 
 The frontend project showcases:
-NgRx
-RxJS
-Flexbox CSS mini-framework
-Angular interceptors (for token header addition)
-Simple http.get communication with backend
+NgRx , RxJS , Flexbox CSS mini-framework , Angular interceptors (for token header addition) , simple http.get communication with backend
 
 The backend project showcases:
-ASP.NET Core API
-Token checker middleware
-IoC/DI for most repositories and configuration clases
-a JSON hand-made storage support
+ASP.NET Core API , Token checker middleware, IoC/DI for most repositories and configuration clases and a JSON hand-made storage support
 
 In future releases:
 GraphQL (future releases)
 Full blown CSS framework (probably Angular Material)
+
 
