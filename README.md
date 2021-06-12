@@ -10,19 +10,16 @@ The storage solution I chose is a simple text file in JSON format in MongoDB sty
 *)Data Science with Python - a few examples of data science algorithms such as K-Means clustering , Polynomic regressions
 I intend to add some more small samples like Bayes classificators and some Neural Networks using Numpy, Pandas,SciKit and MatPlotLib
 
-*)AgendaAngular (Angular Contact List)- this project was made to practice different frontend technologies centered around Angular. Here's the version history:
+*)AgendaAngular (Angular Contact List)- this project was made to practice different technologies centered around Angular. Here's the version history:
 
-v0.9 - First release. Hand-coded CSS styles, auth guard, mock login with mock token, template-driven with hand-crafted validations. 
-Minimal use of RxJS to simulate calls to an HTTP service
+The frontend project showcases:
+NgRx , RxJS , Flexbox CSS mini-framework , Angular interceptors (for token header addition) , simple http.get communication with backend
 
-v1.1 - Second release. Initial support for CSS Flexbox hand-made mini-framework. Also, this release will include NgRx+more RxJS to handle the effects.
+The backend project showcases:
+ASP.NET Core API , Token checker middleware, IoC/DI for most repositories and configuration clases and a JSON hand-made storage support
 
-v1.2 - Reactive Forms instead of template-driven two-way bound forms
-
-v1.3 - Better FlexBox/CSS Grid support for layout (TBD)
-
-v1.4 - Jasmine support
-
-v1.5 - Possible support for Docker (Alpine+nginx base system)
+In future releases:
+GraphQL (future releases)
+Full blown CSS framework (probably Angular Material)
 
 
