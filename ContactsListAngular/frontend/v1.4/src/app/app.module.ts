@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ContactListComponent } from './components/contact-list/contact-list.component';
-import { ContactEditorComponent } from './components/contact-editor/contact-editor.component';
 import { LoginComponent } from './components/login/login.component';
 import { ContactServiceMock } from './services/contact-service-mock';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -31,7 +30,6 @@ let rootReducer = {
   declarations: [
     AppComponent,
     ContactListComponent,
-    ContactEditorComponent,
     ContactEditorComponentv2,
     LoginComponent,
     ContactListItemComponent

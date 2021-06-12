@@ -24,6 +24,8 @@ export class ContactEditorComponentv2 implements OnInit {
   
   constructor(private fb: FormBuilder,private route: ActivatedRoute,private store: Store<appState>,private cd:ChangeDetectorRef, private cs:ContactService,private router:Router) { 
     this.errors=[];
+    this.model=new Person(0,"","",0,"");
+    
 
     this.form = this.fb.group({
       firstName: new FormControl('', [Validators.required,Validators.pattern("([A-Za-z]*)")]),
@@ -32,18 +34,15 @@ export class ContactEditorComponentv2 implements OnInit {
       phoneNumber:new FormControl('',Validators.pattern("^[0-9]*$"))
     });
 
-
     this.store.select(getSelectedPerson).subscribe(
       data => {
-          this.form.patchValue({
-            firstName: data.selectedPerson.firstName,
-            lastName:data.selectedPerson.lastName,
-            email:data.selectedPerson.email,
-            phoneNumber:data.selectedPerson.phoneNumber
-          });
-        }
-      );
-   
+              this.form.patchValue({
+                firstName: data.selectedPerson.firstName,
+                lastName:data.selectedPerson.lastName,
+                email:data.selectedPerson.email,
+                phoneNumber:data.selectedPerson.phoneNumber});
+      });
+
     this.errors=[];
     this.editMode=false;
   }

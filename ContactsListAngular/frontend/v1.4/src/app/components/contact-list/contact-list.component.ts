@@ -21,6 +21,7 @@ export class ContactListComponent implements OnInit {
   destroy$: Subject<boolean> = new Subject<boolean>();
 
   constructor(private store: Store<appState>,private cs:ContactService,private router:Router) { 
+    contacts:[];
     this.store.select(getAllContacts).subscribe(data => this.contacts=data.contacts);
   }
 

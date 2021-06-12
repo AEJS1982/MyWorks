@@ -1,14 +1,36 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RouterTestingModule } from '@angular/router/testing';
+import { Store, StoreModule } from '@ngrx/store';
+import { provideMockStore } from '@ngrx/store/testing';
+import { Person } from 'src/app/entities/person';
+import { User } from 'src/app/entities/user';
 
 import { ContactListComponent } from './contact-list.component';
 
 describe('ContactListComponent', () => {
   let component: ContactListComponent;
   let fixture: ComponentFixture<ContactListComponent>;
+  const initialState = {
+    users:[],
+    userLogged:new User(),
+    contacts:[],
+    selectedPerson:new Person(0,"","",0,"")
+  };
 
   beforeEach(async () => {
+
     await TestBed.configureTestingModule({
-      declarations: [ ContactListComponent ]
+      declarations: [ ContactListComponent ],
+      providers:[
+        provideMockStore({initialState})
+      ],
+      imports:[
+        ReactiveFormsModule,
+        RouterTestingModule,
+        HttpClientTestingModule
+      ]
     })
     .compileComponents();
   });
