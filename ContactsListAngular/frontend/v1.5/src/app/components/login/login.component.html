@@ -1,0 +1,20 @@
+<p>LOGIN</p>
+
+<div>
+  <table>
+      <tr>
+          <td>User:</td>
+          <td><input id="userName" type="text" [(ngModel)]="user.accountName"/></td>
+      </tr>
+      <tr>
+          <td>Password:</td>
+          <td><input id="userPassword" type="password" [(ngModel)]="user.password"/></td>
+      </tr>
+      <tr>
+        <td><button (click)="doLogin()">Login</button></td>
+      </tr>
+      <tr>
+        <td style="color:red">{{error}}</td>
+      </tr>
+  </table>
+</div>

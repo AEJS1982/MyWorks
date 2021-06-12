@@ -1,0 +1,48 @@
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Observable, of, pipe, Subject } from 'rxjs';
+import { Contact } from 'src/app/entities/Contact';
+import { ContactService } from 'src/app/services/contact-service';
+import { appState, currentState } from 'src/app/store/state';
+import { Store } from '@ngrx/store';
+
+import { addNewContact ,deleteContact,editContact, getContacts, selectContact } from 'src/app/actions/contacts.actions';
+import { takeUntil, tap } from 'rxjs/operators';
+import { getAllContacts } from 'src/app/selectors/contacts.selectors';
+
+@Component({
+  selector: 'app-contact-list',
+  templateUrl: './contact-list.component.html',
+  styleUrls: ['./contact-list.component.scss']
+})
+export class ContactListComponent implements OnInit {
+  contacts$:Observable<Contact[]>;
+  destroy$: Subject<boolean> = new Subject<boolean>();
+
+  constructor(private store: Store<appState>,private cs:ContactService,private router:Router) { 
+    this.contacts$=this.store.select(getAllContacts);
+  }
+
+  ngOnInit(): void {
+    this.store.dispatch(getContacts());
+  }
+  
+  ngOnDestroy() {
+    this.destroy$.next(true);
+    this.destroy$.unsubscribe();
+  }
+  
+  addNew(): void {
+    //redirect to add Contact
+    var payload=new Contact(0,"","",0,"");
+    this.store.dispatch(addNewContact({payload}));
+    this.router.navigate(['/contact','N','0']);
+  }
+
+  getChangeInfo(e: any) {
+    console.log(e);
+  }
+
+ 
+
+}
