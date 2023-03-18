@@ -16,11 +16,11 @@ export class ContactService {
     //debugger;
     if (myAppState.contacts.length==0) {
       myAppState.contacts=[];
-      var p1=new Person(1,"King","Diamond",12345678,"kbendix@mf.com");
+      var p1=new Person(1,"asdasd","asdasd",12345678,"asdasd@asdasd.com");
       myAppState.contacts.push(p1);
-      var p2=new Person(2,"Michael","Denner",90000001,"mdenner@mf.com");
+      var p2=new Person(2,"qweqwe","qweqwe",90000001,"qweqwe@qweqwe.com");
       myAppState.contacts.push(p2);
-      var p3=new Person(3,"Hank","Shermann",78891278,"hshermann@mf.com");
+      var p3=new Person(3,"zxczxc","zxczxc",78891278,"zxczxc@zxczxc.com");
       myAppState.contacts.push(p3);
     }
   }
